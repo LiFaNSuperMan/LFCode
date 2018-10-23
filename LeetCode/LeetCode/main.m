@@ -67,13 +67,49 @@ void quickSort(){
 
     }
 }
-
-
-
+// 选择
+void selectSort(){
+    int selectA[8] = {5,7,3,6,2,1,4,8};
+    int min ;
+    for (int i = 0; i < 8; i ++) {
+        min = i;
+        for (int j = i+1; j < 8; j++) {
+            if (selectA[min] > selectA[j]) {
+                min = j;
+            }
+        }
+        if (min != i) {
+            int temp = selectA[min];
+            selectA[min] = selectA[i];
+            selectA[i] = temp;
+        }
+    }
+    for (int i = 0; i < 8; i ++) {
+        NSLog(@"选择排序结果---%d",selectA[i]);
+    }
+}
+// 插入
+void insertSort(){
+    int insertA[8] = {5,7,3,6,2,1,4,8};
+    for (int i = 0; i < 8; i++) {
+        int j = i;
+        while (j > 0 && insertA[j] < insertA[j-1]) {
+            int temp = insertA[j];
+            insertA[j] = insertA[j-1];
+            insertA[j-1] = temp;
+            j--;
+        }
+    }
+    for (int i = 0; i < 8; i ++) {
+        NSLog(@"插入排序结果---%d",insertA[i]);
+    }
+}
 
 int main(int argc, const char * argv[]) {
 //    bubbleSort();
-    quickSort();
+//    quickSort();
+//    selectSort();
+    insertSort();
     return 0;
 }
 
